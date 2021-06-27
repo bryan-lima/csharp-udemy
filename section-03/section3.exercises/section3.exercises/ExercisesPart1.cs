@@ -56,5 +56,27 @@ namespace section3.exercises
 
             Console.WriteLine($"\nDIFERENÇA = {difference}");
         }
+
+        public static void Ex4()
+        {
+            //Fazer um programa que leia o número de um funcionário, seu número de horas trabalhadas, o valor que recebe por hora e calcula o salário desse funcionário
+            //A seguir, mostre o número e o salário do funcionário, com duas casas decimais
+
+            Console.Write("\nID Funcionário: ");
+            int id = int.Parse(Console.ReadLine());
+
+            Console.Write("\nHoras trabalhadas: ");
+            int workedHours = int.Parse(Console.ReadLine());
+
+            Console.Write("\nValor por hora: R$ ");
+            double hourlyRate = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double salary = workedHours * hourlyRate;
+
+            Console.WriteLine("------------------------------------");
+
+            Console.WriteLine($"\nNUMBER = {id}");
+            Console.WriteLine("SALARY = U$ " + salary.ToString("F2", CultureInfo.InvariantCulture));
+        }
     }
 }
