@@ -10,7 +10,9 @@ namespace section3.exercises
         {
             //DataOutput.CSharpDataOutput(); // Aula 18. Saída de dados em C#
 
-            DataInput.CSharpDataInput(); // Aula 23. Entrada de dados em C#
+            //DataInput.CSharpDataInput(); // Aula 23. Entrada de dados em C#
+
+            ExercisesPart1.Ex1();  // Aula 24. Exercícios propostos - PARTE 1
         }
     }
 }
