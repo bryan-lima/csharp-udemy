@@ -12,7 +12,9 @@ namespace section3.exercises
 
             //DataInput.CSharpDataInput(); // Aula 23. Entrada de dados em C#
 
-            ExercisesPart1.Ex1();  // Aula 24. Exercícios propostos - PARTE 1
+            //ExercisesPart1.Ex1();  // Aula 24. Exercícios propostos - PARTE 1
+
+            ExercisesPart1.Ex2(); // Aula 24. Exercícios propostos - PARTE 1
         }
     }
 }
