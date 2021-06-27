@@ -78,5 +78,35 @@ namespace section3.exercises
             Console.WriteLine($"\nNUMBER = {id}");
             Console.WriteLine("SALARY = U$ " + salary.ToString("F2", CultureInfo.InvariantCulture));
         }
+
+        public static void Ex5()
+        {
+            //Fazer um programa para ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2
+            //Calcule e mostre o valor a ser pago
+
+            Console.WriteLine("\nPRODUTO 1 -----------------------------------------");
+            Console.WriteLine("Informe código da peça, quantidade, valor unitário:");
+            Console.Write(">> ");
+            string[] product1 = Console.ReadLine().Split(' ');
+
+            int quantityProduct1 = int.Parse(product1[1]);
+            double unitPrice1 = double.Parse(product1[2], CultureInfo.InvariantCulture);
+            double valueToPayProduct1 = quantityProduct1 * unitPrice1;
+
+            Console.WriteLine("\nPRODUTO 2 -----------------------------------------");
+            Console.WriteLine("Informe código da peça, quantidade, valor unitário:");
+            Console.Write(">> ");
+            string[] product2 = Console.ReadLine().Split(' ');
+
+            int quantityProduct2 = int.Parse(product2[1]);
+            double unitPrice2 = double.Parse(product2[2], CultureInfo.InvariantCulture);
+            double valueToPayProduct2 = quantityProduct2 * unitPrice2;
+
+            double totalToPay = valueToPayProduct1 + valueToPayProduct2;
+
+            Console.WriteLine("\n---------------------------------------------------");
+
+            Console.WriteLine("\nValor a pagar: R$ " + totalToPay.ToString("F2", CultureInfo.InvariantCulture));
+        }
     }
 }
