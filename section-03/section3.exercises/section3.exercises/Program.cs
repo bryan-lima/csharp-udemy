@@ -20,7 +20,9 @@ namespace section3.exercises
 
             //ExercisesPart1.Ex4(); // Aula 24. Exercícios propostos - PARTE 1
 
-            ExercisesPart1.Ex5(); // Aula 24. Exercícios propostos - PARTE 1
+            //ExercisesPart1.Ex5(); // Aula 24. Exercícios propostos - PARTE 1
+
+            ExercisesPart1.Ex6(); // Aula 24. Exercícios propostos - PARTE 1
         }
     }
 }
