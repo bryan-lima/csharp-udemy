@@ -37,5 +37,24 @@ namespace section3.exercises
 
             Console.WriteLine("\nA = " + area.ToString("F4", CultureInfo.InvariantCulture));
         }
+
+        public static void Ex3()
+        {
+            //Fazer um programa para ler quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto de A e B pelo produto de C e D segundo a fórmula: DIFERENCA = (A * B - C * D)
+
+            Console.WriteLine("\nInforme 4 números inteiro: ");
+            Console.Write(">> ");
+            int A = int.Parse(Console.ReadLine());
+            Console.Write(">> ");
+            int B = int.Parse(Console.ReadLine());
+            Console.Write(">> ");
+            int C = int.Parse(Console.ReadLine());
+            Console.Write(">> ");
+            int D = int.Parse(Console.ReadLine());
+
+            int difference = A * B - C * D;
+
+            Console.WriteLine($"\nDIFERENÇA = {difference}");
+        }
     }
 }
