@@ -45,5 +45,46 @@ namespace section3.exercises
                 Console.WriteLine("\nÍMPAR");
             }
         }
+
+        public static void Ex3()
+        {
+            //Leia 2 valores inteiros(A e B). Após, o programa deve mostrar uma mensagem "Sao Multiplos" ou "Nao sao Multiplos", indicando se os valores lidos são múltiplos entre si
+            //Atenção: os números devem poder ser digitados em ordem crescente ou decrescente
+
+            Console.WriteLine("\nVERIFICADOR DE NÚMEROS - MÚLTIPLOS OU NÃO?");
+            Console.WriteLine("---------------------------------------------");
+            Console.Write("\nInforme um valor inteiro para A: ");
+            int a = int.Parse(Console.ReadLine());
+            
+            Console.Write("\nInforme um valor inteiro para B: ");
+            int b = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("---------------------------------------------");
+
+            int higherNumber;
+            int smallestNumber;
+
+            if (a > b)
+            {
+                higherNumber = a;
+                smallestNumber = b;
+            }
+            else
+            {
+                higherNumber = b;
+                smallestNumber = a;
+            }
+
+
+
+            if (higherNumber % smallestNumber == 0)
+            {
+                Console.WriteLine("\nOs números informados são múltiplos entre si");
+            }
+            else
+            {
+                Console.WriteLine("\nOs números informados não são múltiplos entre si");
+            }
+        }
     }
 }
