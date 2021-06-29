@@ -25,5 +25,25 @@ namespace section3.exercises
                 Console.WriteLine("\nNÃO NEGATIVO");
             }
         }
+
+        public static void Ex2()
+        {
+            //Fazer um programa para ler um número inteiro e dizer se este número é par ou ímpar
+
+            Console.WriteLine("\nVERIFICADOR DE NÚMERO - PAR OU ÍMPAR?");
+            Console.WriteLine("---------------------------------------");
+            Console.Write("\nInforme um número inteiro: ");
+            int number = int.Parse(Console.ReadLine());
+            Console.WriteLine("---------------------------------------");
+
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("\nPAR");
+            }
+            else
+            {
+                Console.WriteLine("\nÍMPAR");
+            }
+        }
     }
 }
