@@ -163,5 +163,34 @@ namespace section3.exercises
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine($"\nTotal: R$ {amoountToPay:F2}");
         }
+
+        public static void Ex6()
+        {
+            //Você deve fazer um programa que leia um valor qualquer e apresente uma mensagem dizendo em qual dos seguintes intervalos([0,25], (25, 50], (50, 75], (75, 100]) este valor se encontra
+            //Obviamente se o valor não estiver em nenhum destes intervalos, deverá ser impressa a mensagem “Fora de intervalo”
+
+            Console.Write("\n\nInforme um número: ");
+            double anyNumber = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            if (anyNumber >= 0 && anyNumber <= 25)
+            {
+                Console.WriteLine("\nIntervalo [0, 25]");
+            } else if (anyNumber >= 25 && anyNumber <= 50)
+            {
+                Console.WriteLine("\nIntervalo [25, 50]");
+            }
+            else if (anyNumber >= 50 && anyNumber <= 75)
+            {
+                Console.WriteLine("\nIntervalo [50, 75]");
+            }
+            else if (anyNumber >= 75 && anyNumber <= 100)
+            {
+                Console.WriteLine("\nIntervalo [75, 100]");
+            }
+            else
+            {
+                Console.WriteLine("\nFora de intervalo");
+            }
+        }
     }
 }
