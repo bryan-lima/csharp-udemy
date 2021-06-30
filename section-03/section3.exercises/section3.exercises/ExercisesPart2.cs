@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace section3.exercises
@@ -108,6 +109,59 @@ namespace section3.exercises
             }
 
             Console.WriteLine($"\nO jogo durou {amountFfGameHours} hora(s)");
+        }
+
+        public static void Ex5()
+        {
+            //Com base na tabela abaixo, escreva um programa que leia o código de um item e a quantidade deste item
+            //A seguir, calcule e mostre o valor da conta a pagar
+
+            Console.WriteLine("\n>>>>>>>>>>>>>>>>> DOGÃO DO RATÃO <<<<<<<<<<<<<<<<<");
+            
+            Console.WriteLine("\n                       MENU                       ");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("CODIGO          ESPECIFICAÇÃO               PREÇO");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("  1             Cachorro Quente            R$ 4,00");
+            Console.WriteLine("  2             X-Salada                   R$ 4,50");
+            Console.WriteLine("  3             X-Bacon                    R$ 5.00");
+            Console.WriteLine("  4             Torrada Simples            R$ 2,00");
+            Console.WriteLine("  5             Refrigerante               R$ 1,50");
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.Write("\n\nInforme código e quantidade: ");
+            string[] choice = Console.ReadLine().Split(' ');
+
+            int itemCode = int.Parse(choice[0]);
+            int itemQuantity = int.Parse(choice[1]);
+
+            double itemPrice;
+
+            if (itemCode == 1)
+            {
+                itemPrice = 4.0;
+            }
+            else if (itemCode == 2)
+            {
+                itemPrice = 4.5;
+            }
+            else if (itemCode == 3)
+            {
+                itemPrice = 5.0;
+            }
+            else if (itemCode == 4)
+            {
+                itemPrice = 2.0;
+            }
+            else
+            {
+                itemPrice = 1.50;
+            }
+
+            double amoountToPay = itemQuantity * itemPrice;
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"\nTotal: R$ {amoountToPay:F2}");
         }
     }
 }
