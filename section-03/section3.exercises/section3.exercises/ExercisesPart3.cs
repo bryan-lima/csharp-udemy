@@ -30,5 +30,45 @@ namespace section3.exercises
 
             Console.WriteLine("\nAcesso permitido!");
         }
+
+        public static void Ex2()
+        {
+            //Escreva um programa para ler as coordenadas (X, Y) de uma quantidade indeterminada de pontos no sistema cartesiano
+            //Para cada ponto escrever o quadrante a que ele pertence
+            //O algoritmo será encerrado quando pelo menos uma de duas coordenadas for NULA(nesta situação sem escrever mensagem alguma)
+
+            Console.WriteLine("\nPLANO CARTESIANO");
+            Console.WriteLine("-------------------");
+
+            Console.Write("Informe as coordenadas X e Y: ");
+            string[] coordinates = Console.ReadLine().Split(' ');
+            int coordinateX = int.Parse(coordinates[0]);
+            int coordinateY = int.Parse(coordinates[1]);
+
+            while (coordinateX != 0 && coordinateY != 0)
+            {
+                if (coordinateX > 0 && coordinateY > 0)
+                {
+                    Console.WriteLine("\nPrimeiro quadrante");
+                }
+                else if (coordinateX > 0 && coordinateY < 0)
+                {
+                    Console.WriteLine("\nQuarto quadrante");
+                }
+                else if (coordinateX < 0 && coordinateY > 0)
+                {
+                    Console.WriteLine("\nSegundo quadrante");
+                }
+                else if (coordinateX < 0 & coordinateY < 0)
+                {
+                    Console.WriteLine("\nTerceiro quadrante");
+                }
+
+                Console.Write("\nInforme novas coordenadas X e Y: ");
+                coordinates = Console.ReadLine().Split(' ');
+                coordinateX = int.Parse(coordinates[0]);
+                coordinateY = int.Parse(coordinates[1]);
+            }
+        }
     }
 }
