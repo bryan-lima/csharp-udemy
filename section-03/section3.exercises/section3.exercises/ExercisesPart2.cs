@@ -192,5 +192,64 @@ namespace section3.exercises
                 Console.WriteLine("\nFora de intervalo");
             }
         }
+
+        public static void Ex7()
+        {
+            //Leia 2 valores com uma casa decimal(x e y), que devem representar as coordenadas de um ponto em um plano
+            //A seguir, determine qual o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos ou na origem(x = y = 0)
+            //Se o ponto estiver na origem, escreva a mensagem “Origem”
+            //Se o ponto estiver sobre um dos eixos escreva “Eixo X” ou “Eixo Y”, conforme for a situação
+            //
+            //           Y
+            //          |
+            //    Q2    |    Q1
+            //__________|__________ X
+            //          |
+            //    Q3    |    Q4
+            //          |
+
+
+            Console.WriteLine("\nCOORDENADAS");
+            Console.WriteLine("-------------------------------------------------------------------");
+            Console.Write("Informe duas coordenadas para o ponto no plano cartesiano: ");
+            string[] coordinates = Console.ReadLine().Split(' ');
+
+            double axisX = double.Parse(coordinates[0], CultureInfo.InvariantCulture);
+            double axisY = double.Parse(coordinates[1], CultureInfo.InvariantCulture);
+
+            string position = "";
+
+            if (axisX > 0 && axisY > 0)
+            {
+                position = "em Q1";
+            }
+            else if (axisX > 0 && axisY < 0)
+            {
+                position = "em Q4";
+            }
+            else if (axisX < 0 && axisY > 0)
+            {
+                position = "em Q2";
+            }
+            else if (axisX < 0 && axisY < 0)
+            {
+                position = "em Q3";
+            }
+            else if (axisX == 0 && axisY != 0)
+            {
+                position = "no Eixo X";
+            }
+            else if (axisX != 0 && axisY == 0)
+            {
+                position = "no Eixo Y";
+            }
+            else
+            {
+                position = "na Origem";
+            }
+
+            Console.WriteLine($"\n\nO ponto está {position}");
+
+        }
     }
 }
