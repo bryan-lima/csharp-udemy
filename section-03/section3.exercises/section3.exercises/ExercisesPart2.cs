@@ -56,7 +56,7 @@ namespace section3.exercises
             Console.WriteLine("---------------------------------------------");
             Console.Write("\nInforme um valor inteiro para A: ");
             int a = int.Parse(Console.ReadLine());
-            
+
             Console.Write("\nInforme um valor inteiro para B: ");
             int b = int.Parse(Console.ReadLine());
 
@@ -117,7 +117,7 @@ namespace section3.exercises
             //A seguir, calcule e mostre o valor da conta a pagar
 
             Console.WriteLine("\n>>>>>>>>>>>>>>>>> DOGÃO DO RATÃO <<<<<<<<<<<<<<<<<");
-            
+
             Console.WriteLine("\n                       MENU                       ");
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("CODIGO          ESPECIFICAÇÃO               PREÇO");
@@ -175,7 +175,8 @@ namespace section3.exercises
             if (anyNumber >= 0 && anyNumber <= 25)
             {
                 Console.WriteLine("\nIntervalo [0, 25]");
-            } else if (anyNumber >= 25 && anyNumber <= 50)
+            }
+            else if (anyNumber >= 25 && anyNumber <= 50)
             {
                 Console.WriteLine("\nIntervalo [25, 50]");
             }
@@ -250,6 +251,64 @@ namespace section3.exercises
 
             Console.WriteLine($"\n\nO ponto está {position}");
 
+        }
+
+        public static void Ex8()
+        {
+            //Em um país imaginário denominado Lisarb, todos os habitantes ficam felizes em pagar seus impostos, pois sabem que nele não existem políticos corruptos e os recursos arrecadados são utilizados em 
+            //benefício da população, sem qualquer desvio
+            //A moeda deste país é o Rombus, cujo símbolo é o R$
+            //Leia um valor com duas casas decimais, equivalente ao salário de uma pessoa de Lisarb
+            //Em seguida, calcule e mostre o valor que esta pessoa deve pagar de Imposto de Renda, segundo a tabela abaixo
+
+            //--------------------------------------------------
+            //           Renda               | Imposto de Renda
+            //-------------------------------+------------------
+            // de 0.00 a R$ 2000.00          |      Isento
+            // de R$ 2000.01 até R$ 3000.00  |        8%
+            // de R$ 3000.01 até R$ 4500.00  |       18%
+            // acima de R$ 4500.00           |       28%
+            //-------------------------------+------------------
+
+            //Lembre que, se o salário for R$ 3002.00, a taxa que incide é de 8 % apenas sobre R$ 1000.00, pois a faixa de salário que fica de R$ 0.00 até R$ 2000.00 é isenta de Imposto de Renda
+            //No exemplo fornecido(abaixo), a taxa é de 8 % sobre R$ 1000.00 + 18 % sobre R$ 2.00, o que resulta em R$ 80.36 no total
+            //O valor deve ser impresso com duas casas decimais
+
+            Console.WriteLine("\n  CÁLCULO DE IMPOSTO DE RENDA (IR)");
+            Console.WriteLine("----------------------------------------");
+            Console.Write("\nInforme o salário: R$ ");
+            double salary = double.Parse(Console.ReadLine());
+            Console.WriteLine("\n----------------------------------------");
+            Console.Write("\nImposto a pagar: ");
+
+            double taxToPay = 0.0;
+            double valueToConsiderForTaxCalculation = 0.0;
+
+            if (salary <= 2000)
+            {
+                Console.WriteLine("ISENTO");
+            }
+            else if (salary >= 2000.01 && salary <= 3000)
+            {
+                valueToConsiderForTaxCalculation = salary - 2000;
+                taxToPay = valueToConsiderForTaxCalculation * 0.08;
+                Console.WriteLine($"R$ {taxToPay:F2}");
+            }
+            else if (salary >= 3000.01 && salary <= 4500)
+            {
+                double firstTaxRange = 1000 * 0.08;
+                valueToConsiderForTaxCalculation = salary - 3000;
+                taxToPay = firstTaxRange + (valueToConsiderForTaxCalculation * 0.18);
+                Console.WriteLine($"R$ {taxToPay:F2}");
+            }
+            else
+            {
+                double firstTaxRange = 1000 * 0.08;
+                double secondTaxRange = 1500 * 0.18;
+                valueToConsiderForTaxCalculation = salary - 4500;
+                taxToPay = firstTaxRange + secondTaxRange + (valueToConsiderForTaxCalculation * 0.28);
+                Console.WriteLine($"R$ {taxToPay:F2}");
+            }
         }
     }
 }
