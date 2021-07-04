@@ -38,7 +38,9 @@ namespace section3.exercises
 
             //ExercisesPart2.Ex7(); // Aula 29. Exercícios propostos - PARTE 2
 
-            ExercisesPart2.Ex8(); // Aula 29. Exercícios propostos - PARTE 2
+            //ExercisesPart2.Ex8(); // Aula 29. Exercícios propostos - PARTE 2
+
+            ExercisesPart3.Ex1(); // Aula 33. Exercícios propostos - PARTE 3
         }
     }
 }
