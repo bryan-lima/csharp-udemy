@@ -70,5 +70,55 @@ namespace section3.exercises
                 coordinateY = int.Parse(coordinates[1]);
             }
         }
+
+        public static void Ex3()
+        {
+            //Um Posto de combustíveis deseja determinar qual de seus produtos tem a preferência de seus clientes
+            //Escreva um algoritmo para ler o tipo de combustível abastecido (codificado da seguinte forma: 1.Álcool 2.Gasolina 3.Diesel 4.Fim)
+            //Caso o usuário informe um código inválido (fora da faixa de 1 a 4) deve ser solicitado um novo código (até que seja válido)
+            //O programa será encerrado quando o código informado for o número 4
+            //Deve ser escrito a mensagem: "MUITO OBRIGADO" e a quantidade de clientes que abasteceram cada tipo de combustível, conforme exemplo
+
+            Console.WriteLine("\n\n    POSTO DE COMBUSTÍVEL TABAJARA - PESQUISA");
+            Console.WriteLine("------------------------------------------------");
+
+            Console.WriteLine("            +------+-----------+");
+            Console.WriteLine("            | CÓD. | DESCRIÇÃO |");
+            Console.WriteLine("            +------+-----------+");
+            Console.WriteLine("            |  1   | Álcool    |");
+            Console.WriteLine("            |  2   | Gasolina  |");
+            Console.WriteLine("            |  3   | Diesel    |");
+            Console.WriteLine("            |  4   | Fim       |");
+            Console.WriteLine("            +------+-----------+");
+
+            Console.WriteLine("\nInforme os valores, uma linha por vez:");
+            Console.Write(">> ");
+            int option = int.Parse(Console.ReadLine());
+
+            int counterAlcohol = 0;
+            int counterGasoline = 0;
+            int counterDiesel = 0;
+
+            while (option != 4)
+            {
+                if (option == 1)
+                    counterAlcohol += 1;
+
+                if (option == 2)
+                    counterGasoline += 1;
+
+                if (option == 3)
+                    counterDiesel += 1;
+
+                Console.Write(">> ");
+                option = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("\n\n  MUITO OBRIGADO!");
+            Console.WriteLine("------------------");
+            Console.WriteLine($"Álcool: {counterAlcohol}");
+            Console.WriteLine($"Gasolina: {counterGasoline}");
+            Console.WriteLine($"Diesel: {counterDiesel}");
+        }
     }
 }
