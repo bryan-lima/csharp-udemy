@@ -44,7 +44,9 @@ namespace section3.exercises
 
             //ExercisesPart3.Ex2(); // Aula 33. Exercícios propostos - PARTE 3
 
-            ExercisesPart3.Ex3(); // Aula 33. Exercícios propostos - PARTE 3
+            //ExercisesPart3.Ex3(); // Aula 33. Exercícios propostos - PARTE 3
+
+            ExercisesPart4.Ex1(); // Aula 35. Exercícios propostos - PARTE 4
         }
     }
 }
