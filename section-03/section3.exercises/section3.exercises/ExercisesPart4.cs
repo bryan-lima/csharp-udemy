@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace section3.exercises
@@ -40,7 +41,7 @@ namespace section3.exercises
             int IN = 0;
             int OUT = 0;
 
-            for (int i = 1; i <= n;  i++)
+            for (int i = 1; i <= n; i++)
             {
                 Console.Write(">> ");
                 int x = int.Parse(Console.ReadLine());
@@ -57,6 +58,44 @@ namespace section3.exercises
 
             Console.WriteLine($"\n{IN} in");
             Console.WriteLine($"{OUT} out");
+        }
+
+        public static void Ex3()
+        {
+            //Leia 1 valor inteiro N, que representa o número de casos de teste que vem a seguir
+            //Cada caso de teste consiste de 3 valores reais, cada um deles com uma casa decimal
+            //Apresente a média ponderada para cada um destes conjuntos de 3 valores, sendo que o primeiro valor tem peso 2, o segundo valor tem peso 3 e o terceiro valor tem peso 5
+
+            Console.Write("\nInforme a quantidade de casos de testes que deseja: ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nAgora informe 3 números decimais (0.0) separados por espaço, para cada caso de teste:");
+
+            List<string> cases = new List<string>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(">> ");
+                string x = Console.ReadLine();
+                cases.Add(x);
+            }
+
+            Console.WriteLine();
+            int counter = 1;
+
+            foreach (string c in cases)
+            {
+                string[] cSplited = c.Split(' ');
+                double n1 = double.Parse(cSplited[0], CultureInfo.InvariantCulture);
+                double n2 = double.Parse(cSplited[1], CultureInfo.InvariantCulture);
+                double n3 = double.Parse(cSplited[2], CultureInfo.InvariantCulture);
+
+                double total = (n1 * 0.2) + (n2 * 0.3) + (n3 * 0.5);
+
+                Console.WriteLine("Média ponderada do " + counter + "º caso: " + total.ToString("F1", CultureInfo.InvariantCulture));
+                
+                counter++;
+            }
         }
     }
 }
