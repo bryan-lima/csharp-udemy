@@ -97,5 +97,48 @@ namespace section3.exercises
                 counter++;
             }
         }
+
+        public static void Ex4()
+        {
+            //Fazer um programa para ler um número N
+            //Depois leia N pares de números e mostre a divisão do primeiro pelo segundo
+            //Se o denominador for igual a zero, mostrar a mensagem "divisao impossivel"
+
+            Console.Write("\nDigite um número: ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nAgora informe 2 números inteiros separados por espaço, para cada entrada:");
+
+            List<string> intNumbers = new List<string>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(">> ");
+                string x = Console.ReadLine();
+                intNumbers.Add(x);
+            }
+
+            Console.WriteLine();
+            int counter = 1;
+
+            foreach (string intNumber in intNumbers)
+            {
+                string[] intNumberSplited = intNumber.Split(' ');
+                double n1 = double.Parse(intNumberSplited[0], CultureInfo.InvariantCulture);
+                double n2 = double.Parse(intNumberSplited[1], CultureInfo.InvariantCulture);
+
+                if (n2 == 0)
+                {
+                    Console.WriteLine($"Divisão impossível entre {n1} e {n2}");
+                    continue;
+                }
+
+                double division = n1 / n2;
+
+                Console.WriteLine("Divisão entre " + n1 + " e " + n2 + " = " + division.ToString("F1", CultureInfo.InvariantCulture));
+
+                counter++;
+            }
+        }
     }
 }
