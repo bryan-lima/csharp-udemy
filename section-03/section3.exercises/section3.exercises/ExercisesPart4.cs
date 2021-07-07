@@ -170,5 +170,23 @@ namespace section3.exercises
 
             Console.WriteLine($"\nFatorial de {n} = {factorial}");
         }
+
+        public static void Ex6()
+        {
+            //Ler um número inteiro N e calcular todos os seus divisores
+
+            Console.WriteLine("\nCALCULAR TODOS DIVISORES DE UM NÚMERO");
+            Console.WriteLine("-------------------------------------");
+            Console.Write("\nInforme um número inteiro: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
     }
 }
