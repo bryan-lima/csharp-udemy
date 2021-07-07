@@ -140,5 +140,35 @@ namespace section3.exercises
                 counter++;
             }
         }
+
+        public static void Ex5()
+        {
+            //Ler um valor N
+            //Calcular e escrever seu respectivo fatorial
+            //Fatorial de N = N * (N - 1) * (N - 2) * (N - 3) * ... *1
+            //Lembrando que, por definição, fatorial de 0 é 1
+
+            Console.WriteLine("\nCALCULAR FATORIAL");
+            Console.WriteLine("------------------");
+
+            Console.Write("\nInforme o valor para calcular seu fatorial: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int factorial = n;
+
+            if (n == 0)
+            {
+                factorial = 1;
+            }
+            else
+            {
+                for (int i = n - 1; i > 0; i--)
+                {
+                    factorial = factorial * (n - i);
+                }
+            }
+
+            Console.WriteLine($"\nFatorial de {n} = {factorial}");
+        }
     }
 }
