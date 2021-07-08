@@ -6,5 +6,7 @@ namespace section4.exercises
 {
     class People
     {
+        public string name;
+        public int age;
     }
 }
