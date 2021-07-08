@@ -6,5 +6,7 @@ namespace section4.exercises
 {
     class Functionary
     {
+        public string name;
+        public double salary;
     }
 }

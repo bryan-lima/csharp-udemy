@@ -6,7 +6,8 @@ namespace section4.exercises
     {
         static void Main(string[] args)
         {
-            Ex1(); // Aula 40. Primeiros exercícios (classes, objetos e atributos)
+            //Ex1(); // Aula 40. Primeiros exercícios (classes, objetos e atributos)
+            Ex2(); // Aula 40. Primeiros exercícios (classes, objetos e atributos)
         }
 
         static void Ex1()
@@ -45,6 +46,35 @@ namespace section4.exercises
             }
 
             Console.WriteLine($"\n\nA pessoa mais velha cadastrada é: {oldPerson}");
+        }
+
+        static void Ex2()
+        {
+            //Fazer um programa para ler nome e salário de dois funcionários
+            //Depois, mostrar o salário médio dos funcionários
+
+            Console.WriteLine("\n               FUNCIONÁRIOS");
+            Console.WriteLine("--------------------------------------------");
+
+            Functionary f1 = new Functionary();
+            Console.WriteLine("\nDados do primeiro funcionário:");
+            Console.WriteLine("------------------------------");
+            Console.Write("Nome: ");
+            f1.name = Console.ReadLine();
+            Console.Write("Salário: R$ ");
+            f1.salary = double.Parse(Console.ReadLine());
+
+            Functionary f2 = new Functionary();
+            Console.WriteLine("\n\nDados do segundo funcionário:");
+            Console.WriteLine("------------------------------");
+            Console.Write("Nome: ");
+            f2.name = Console.ReadLine();
+            Console.Write("Salário: R$ ");
+            f2.salary = double.Parse(Console.ReadLine());
+
+            double averageSalary = (f1.salary + f2.salary) / 2;
+
+            Console.WriteLine($"\n\nSalário médio: R$ {averageSalary:F2}");
         }
     }
 }
