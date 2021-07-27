@@ -11,7 +11,9 @@ namespace section4.exercises
 
             Console.WriteLine("\n        EXERCÍCIOS PROPOSTOS");
             Console.WriteLine("--------------------------------------------");
-            ProposedExercises.Ex01(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
+
+            //ProposedExercises.Ex01(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
+            ProposedExercises.Ex02(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
         }
     }
 }
