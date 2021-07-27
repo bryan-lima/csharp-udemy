@@ -13,7 +13,8 @@ namespace section4.exercises
             Console.WriteLine("--------------------------------------------");
 
             //ProposedExercises.Ex01(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
-            ProposedExercises.Ex02(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
+            //ProposedExercises.Ex02(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
+            ProposedExercises.Ex03(); // Aula 45. Exercícios propostos (classes, atributos e métodos)
         }
     }
 }

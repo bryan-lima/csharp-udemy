@@ -87,5 +87,46 @@ namespace section4.exercises
 
             Console.WriteLine($"\nDados atualizados: {worker}");
         }
+
+        public static void Ex03()
+        {
+            /*
+            
+            Fazer um programa para ler o nome de um aluno e as três notas que ele obteve nos três trimestres do ano (primeiro trimestre vale 30 e o segundo e terceiro valem 35 cada)
+            Ao final, mostrar qual a nota final do aluno no ano
+            Dizer também se o aluno está APROVADO ou REPROVADO e, em caso negativo, quantos pontos faltam para o aluno obter o mínimo para ser aprovado (que é de 60 pontos)
+            Você deve criar uma classe Aluno para resolver este problema
+
+            */
+
+            Console.WriteLine("\n\n         SISTEMA ESCOLAR - NOTAS");
+            Console.WriteLine("-------------------------------------------");
+
+            Student student = new Student();
+
+            Console.Write("\nNome do estudante: ");
+            student.Name = Console.ReadLine();
+
+            Console.Write("\nNota do 1º trimestre: ");
+            student.FirstTrimesterNote = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("\nNota do 2º trimestre: ");
+            student.SecondTrimesterNote = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("\nNota do 3º trimestre: ");
+            student.ThirdTrimesterNote = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("\n\n" + student);
+
+            if (student.IsApproved())
+            {
+                Console.WriteLine("APROVADO!");
+            }
+            else
+            {
+                Console.WriteLine("REPROVADO!");
+                Console.WriteLine("FALTARAM " + student.DifferenceForApproval().ToString("F2", CultureInfo.InvariantCulture) + " PONTOS");
+            }
+        }
     }
 }
