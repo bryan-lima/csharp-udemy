@@ -11,16 +11,14 @@ namespace section5.exercises
         {
             AccountNumber = accountNumber;
             Name = name;
-            InitialDeposit = 0.0;
-            Balance = InitialDeposit;
         }
 
-        public Account(int accountNumber, string name, double initialDeposit)
+        public Account(int accountNumber, string name, double initialDeposit) : this(accountNumber, name)
         {
             AccountNumber = accountNumber;
             Name = name;
             InitialDeposit = initialDeposit;
-            Balance = InitialDeposit;
+            Deposit(InitialDeposit);
         }
 
         public int AccountNumber { get; private set; }
