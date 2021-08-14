@@ -6,7 +6,7 @@ namespace section6.exercises
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ExerciseFixingVectors.Ex01();   // Aula 71. Exercício de fixação (vetores)
         }
     }
 }
