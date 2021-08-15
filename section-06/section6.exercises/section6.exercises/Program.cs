@@ -8,7 +8,9 @@ namespace section6.exercises
         {
             //ExerciseFixingVectors.Ex01();   // Aula 71. Exercício de fixação (vetores)
 
-            ExerciseFixingLists.Ex01();   // Aula 78. Exercício de fixação (listas)
+            //ExerciseFixingLists.Ex01();   // Aula 78. Exercício de fixação (listas)
+
+            ExerciseFixingMatrices.Ex01();   // Aula 81. Exercício de fixação (matrizes)
         }
     }
 }
