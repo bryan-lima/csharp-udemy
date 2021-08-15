@@ -21,21 +21,21 @@ namespace section9.exercises
             string workerName = Console.ReadLine();
 
             Console.Write("Level (Junior/MidLevel/Senior): ");
-            string workerLevel = Console.ReadLine();
+            WorkerLevel workerLevel = Enum.Parse<WorkerLevel>(Console.ReadLine());
 
             Console.Write("Base salary: $ ");
             double workerBaseSalary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Department department = new Department(departmentName);
 
-            Worker worker = new Worker(workerName, Enum.Parse<WorkerLevel>(workerLevel), workerBaseSalary, department);
+            Worker worker = new Worker(workerName, workerLevel, workerBaseSalary, department);
 
             Console.Write("\nHow many contracts to this worker? ");
             int quantityContracts = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < quantityContracts; i++)
+            for (int i = 1; i <= quantityContracts; i++)
             {
-                Console.WriteLine($"\nEnter #{i + 1} contract data:");
+                Console.WriteLine($"\nEnter #{i} contract data:");
                 Console.WriteLine("-----------------------");
 
                 Console.Write("Date (DD/MM/YYYY): ");
@@ -53,15 +53,13 @@ namespace section9.exercises
             }
 
             Console.Write("\n\nEnter month and year to calculate income (MM/YYYY): ");
-            string[] dateCalculateIncome = Console.ReadLine().Split("/");
-            int monthCalculateIncome = int.Parse(dateCalculateIncome[0]);
-            int yearCalculateIncome = int.Parse(dateCalculateIncome[1]);
-
-            double calculatedWorkerIncome = worker.Income(yearCalculateIncome, monthCalculateIncome);
+            string dateCalculateIncome = Console.ReadLine();
+            int monthCalculateIncome = int.Parse(dateCalculateIncome.Substring(0, 2));
+            int yearCalculateIncome = int.Parse(dateCalculateIncome.Substring(3));
 
             Console.WriteLine($"\n\nName: {worker.Name}");
             Console.WriteLine($"Department: {worker.Department.Name}");
-            Console.WriteLine($"Income for {String.Join("/", dateCalculateIncome)}: $ {calculatedWorkerIncome.ToString("F2", CultureInfo.InvariantCulture)}");
+            Console.WriteLine($"Income for {dateCalculateIncome}: $ {worker.Income(yearCalculateIncome, monthCalculateIncome).ToString("F2", CultureInfo.InvariantCulture)}");
         }
     }
 }
