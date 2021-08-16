@@ -9,28 +9,52 @@ namespace section9.exercises
     {
         public static void Exercise()
         {
-            #region Firs Post
-            Comment firstPostFirstComment = new Comment("Have a nice trip");
-            Comment firstPostSecondComment = new Comment("Wow that's awesome!");
+            Console.Write("\nNumber of posts: ");
+            int postQuantities = int.Parse(Console.ReadLine());
 
-            Post firstPost = new Post(DateTime.Parse("21/06/2018 13:05:44"), "Traveling to New Zealand", "I'm going to visit this wonderful country!", 12);
+            List<Post> postList = new List<Post>();
 
-            firstPost.AddComment(firstPostFirstComment);
-            firstPost.AddComment(firstPostSecondComment);
-            #endregion
+            for (int postNumber = 1; postNumber <= postQuantities; postNumber++)
+            {
+                Console.WriteLine($"\n\nPost #{postNumber}");
+                Console.WriteLine("-------");
+                Console.Write("Title: ");
+                string postTitle = Console.ReadLine();
 
-            #region Second Post
-            Comment secondPostFirstComment = new Comment("Have a nice trip");
-            Comment secondPostSecondComment = new Comment("Wow that's awesome!");
+                Console.Write("Content: ");
+                string postContent = Console.ReadLine();
 
-            Post secondPost = new Post(DateTime.Parse("21/06/2018 13:05:44"), "Traveling to New Zealand", "I'm going to visit this wonderful country!", 12);
+                Console.Write("Likes: ");
+                int postLikes = int.Parse(Console.ReadLine());
 
-            secondPost.AddComment(secondPostFirstComment);
-            secondPost.AddComment(secondPostSecondComment);
-            #endregion
+                DateTime postMoment = DateTime.Now;
 
-            Console.WriteLine(firstPost);
-            Console.WriteLine(secondPost);
+                Post newPost = new Post(postMoment, postTitle, postContent, postLikes);
+
+                Console.Write("\nNumber of comments: ");
+                int commentsQuantities = int.Parse(Console.ReadLine());
+
+                Console.WriteLine($"\nComments of post #{postNumber}");
+                Console.WriteLine("-------------------\n");
+
+                for (int commentNumber = 1; commentNumber <= commentsQuantities; commentNumber++)
+                {
+                    Console.Write($"Comment #{commentNumber}: ");
+                    Comment comment = new Comment(Console.ReadLine());
+
+                    newPost.AddComment(comment);
+                }
+
+                postList.Add(newPost);
+            }
+
+            Console.WriteLine("\n\n\n          FEED");
+            Console.WriteLine("------------------------");
+
+            foreach (Post post in postList)
+            {
+                Console.WriteLine(post);
+            }
         }
     }
 }
