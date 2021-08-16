@@ -38,5 +38,24 @@ namespace section9.exercises.Entities
         {
             Comments.Remove(comment);
         }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(Title);
+            stringBuilder.Append(Likes);
+            stringBuilder.Append(" Likes - ");
+            stringBuilder.AppendLine(Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            stringBuilder.AppendLine(Content);
+            stringBuilder.AppendLine("Comments:");
+            
+            foreach (Comment comment in Comments)
+            {
+                stringBuilder.AppendLine(comment.Text);
+            }
+
+            return stringBuilder.ToString();
+        }
     }
 }
