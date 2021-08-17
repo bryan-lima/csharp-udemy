@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 using section9.exercises.Entities.Enums;
 
 namespace section9.exercises.Entities
@@ -47,6 +48,38 @@ namespace section9.exercises.Entities
             }
 
             return total;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("Order moment: ");
+            stringBuilder.AppendLine(Moment.ToString());
+            stringBuilder.Append("Order status: ");
+            stringBuilder.AppendLine(Status.ToString());
+            stringBuilder.Append("Client: ");
+            stringBuilder.Append(Client.Name);
+            stringBuilder.Append(" (");
+            stringBuilder.Append(Client.BirthDate.ToString("dd/MM/yyyy"));
+            stringBuilder.Append(") - ");
+            stringBuilder.AppendLine(Client.Email);
+            stringBuilder.AppendLine("Order items:");
+
+            foreach (OrderItem item in Items)
+            {
+                stringBuilder.Append(item.Product.Name);
+                stringBuilder.Append(", $ ");
+                stringBuilder.Append(item.Price.ToString("F2", CultureInfo.InvariantCulture));
+                stringBuilder.Append(", Quantity: ");
+                stringBuilder.Append(item.Quantity);
+                stringBuilder.Append(", Subtotal: $ ");
+                stringBuilder.AppendLine(item.SubTotal().ToString("F2", CultureInfo.InvariantCulture));
+            }
+
+            stringBuilder.Append("Total price: $ ");
+            stringBuilder.AppendLine(Total().ToString("F2", CultureInfo.InvariantCulture));
+
+            return stringBuilder.ToString();
         }
     }
 }
