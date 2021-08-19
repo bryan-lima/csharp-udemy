@@ -20,7 +20,7 @@ namespace section10.exercises.Entities
 
         public override double Payment()
         {
-            return Hours * ValuePerHour + AdditionalCharge * 1.1;
+            return base.Payment() + AdditionalCharge * 1.1;
         }
     }
 }
