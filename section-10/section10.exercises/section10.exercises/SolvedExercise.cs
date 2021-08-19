@@ -87,21 +87,17 @@ namespace section10.exercises
                 Console.Write("Value per hour: $ ");
                 double employeeValuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                Employee employee;
-
                 if (hasOutsourced)
                 {
                     Console.Write("Additional charge: $ ");
                     double outsourcedEmployeeAdditionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                    employee = new OutsourcedEmployee(employeeName, employeeHours, employeeValuePerHour, outsourcedEmployeeAdditionalCharge);
+                    employeeList.Add(new OutsourcedEmployee(employeeName, employeeHours, employeeValuePerHour, outsourcedEmployeeAdditionalCharge));
                 }
                 else
                 {
-                    employee = new Employee(employeeName, employeeHours, employeeValuePerHour);
+                    employeeList.Add(new Employee(employeeName, employeeHours, employeeValuePerHour));
                 }
-
-                employeeList.Add(employee);
             }
 
             Console.WriteLine("\n\n\n                    PAYMENTS:");
@@ -109,15 +105,7 @@ namespace section10.exercises
 
             foreach (Employee employee in employeeList)
             {
-                if (employee is Employee)
-                {
-                    Console.WriteLine(employee);
-                }
-                else
-                {
-                    OutsourcedEmployee outsourcedEmployee = employee as OutsourcedEmployee;
-                    Console.WriteLine(outsourcedEmployee);
-                }
+                Console.WriteLine(employee);
             }
         }
     }
