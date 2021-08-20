@@ -6,7 +6,9 @@ namespace section10.exercises
     {
         static void Main(string[] args)
         {
-            SolvedExercise.InheritanceAndPolymorphism();        // 131 e 132. Exercício resolvido - Parte 1 e 2
+            //SolvedExercise.InheritanceAndPolymorphism();        // 131 e 132. Exercício resolvido - Parte 1 e 2
+
+            SolvedExercise.AbstractMethods();                   // 136. Exercício resolvido (métodos abstratos)
         }
     }
 }
