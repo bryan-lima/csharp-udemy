@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using Exercise.AbstractMethods.Entities;
 
 namespace Exercise.AbstractMethods
 {
@@ -26,6 +29,67 @@ namespace Exercise.AbstractMethods
 
             */
 
+            Console.Write("\n\nEnter the number of tax payers: ");
+            int numberOfContributors = int.Parse(Console.ReadLine());
+
+            List<TaxPayer> listTaxPayer = new List<TaxPayer>();
+
+            for (int i = 1; i <= numberOfContributors; i++)
+            {
+                Console.WriteLine($"\nTax payer #{i} data:");
+                Console.WriteLine("------------------");
+
+                string taxPayerType;
+
+                while (true)
+                {
+                    Console.Write("\nIndividual or company (i/c)? ");
+                    taxPayerType = Console.ReadLine().Trim().ToUpper();
+
+                    if (taxPayerType == "I" || taxPayerType == "C")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid answer! Just enter I for Individual or C for Company.");
+                    }
+                }
+
+                Console.Write("Name: ");
+                string taxPayerName = Console.ReadLine();
+
+                Console.Write("Anual income: $ ");
+                double taxPayerAnualIncome = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                if (taxPayerType == "I")
+                {
+                    Console.Write("Health expenditures: $ ");
+                    double taxPayerMedicalExpenses = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    listTaxPayer.Add(new Individual(taxPayerName, taxPayerAnualIncome, taxPayerMedicalExpenses));
+                }
+                else if (taxPayerType == "C")
+                {
+                    Console.Write("Number of employees: $ ");
+                    int taxPayerNumberOfEmployees = int.Parse(Console.ReadLine());
+
+                    listTaxPayer.Add(new Company(taxPayerName, taxPayerAnualIncome, taxPayerNumberOfEmployees));
+                }
+            }
+
+            Console.WriteLine("\n\n\nTAXES PAID:");
+            Console.WriteLine("-----------");
+
+            double totalTaxes = 0.0;
+
+            foreach (TaxPayer taxPayer in listTaxPayer)
+            {
+                totalTaxes += taxPayer.TaxToPay();
+                Console.WriteLine(taxPayer);
+            }
+
+            Console.WriteLine($"\nTOTAL TAXES: $ {totalTaxes.ToString("F2", CultureInfo.InvariantCulture)}");
         }
     }
 }
