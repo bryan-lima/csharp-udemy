@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "section10.exercises", "section10.exercises\section10.exercises.csproj", "{763DF12E-646E-4E9B-A7A3-3D7B138CF463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.InheritanceAndPolymorphism", "Exercise.InheritanceAndPolymorphism\Exercise.InheritanceAndPolymorphism.csproj", "{F14C004C-B474-4558-AFC6-EFA15F762FDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise.InheritanceAndPolymorphism", "Exercise.InheritanceAndPolymorphism\Exercise.InheritanceAndPolymorphism.csproj", "{F14C004C-B474-4558-AFC6-EFA15F762FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise.AbstractMethods", "Exercise.AbstractMethods\Exercise.AbstractMethods.csproj", "{9C86E0BE-CED2-4EB5-AA88-05963A650D97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F14C004C-B474-4558-AFC6-EFA15F762FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14C004C-B474-4558-AFC6-EFA15F762FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14C004C-B474-4558-AFC6-EFA15F762FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C86E0BE-CED2-4EB5-AA88-05963A650D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C86E0BE-CED2-4EB5-AA88-05963A650D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C86E0BE-CED2-4EB5-AA88-05963A650D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C86E0BE-CED2-4EB5-AA88-05963A650D97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
