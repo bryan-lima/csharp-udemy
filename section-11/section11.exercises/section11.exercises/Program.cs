@@ -1,5 +1,6 @@
 ﻿using System;
 using section11.exercises.Entities;
+using section11.exercises.Entities.Exceptions;
 
 namespace section11.exercises
 {
@@ -32,21 +33,17 @@ namespace section11.exercises
 
             */
 
-            Console.Write("\nRoom number: ");
-            int roomNumber = int.Parse(Console.ReadLine());
-
-            Console.Write("Check-in date (dd/MM/yyyy): ");
-            DateTime checkIn = DateTime.Parse(Console.ReadLine());
-
-            Console.Write("Check-out date (dd/MM/yyyy): ");
-            DateTime checkOut = DateTime.Parse(Console.ReadLine());
-
-            if (checkOut <= checkIn)
+            try
             {
-                Console.WriteLine("\nError in reservation: Check-out date must be after check-in date!");
-            }
-            else
-            {
+                Console.Write("\nRoom number: ");
+                int roomNumber = int.Parse(Console.ReadLine());
+
+                Console.Write("Check-in date (dd/MM/yyyy): ");
+                DateTime checkIn = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Check-out date (dd/MM/yyyy): ");
+                DateTime checkOut = DateTime.Parse(Console.ReadLine());
+
 
                 Reservation reservation = new Reservation(roomNumber, checkIn, checkOut);
                 Console.WriteLine($"\nReservation: {reservation}");
@@ -58,16 +55,21 @@ namespace section11.exercises
                 Console.Write("Check-out date (dd/MM/yyyy): ");
                 checkOut = DateTime.Parse(Console.ReadLine());
 
-                string error = reservation.UpdateDates(checkIn, checkOut);
+                reservation.UpdateDates(checkIn, checkOut);
 
-                if (error != null)
-                {
-                    Console.WriteLine($"\nError in reservation: {error}");
-                }
-                else
-                {
-                    Console.WriteLine($"\nReservation: {reservation}");
-                }
+                Console.WriteLine($"\nReservation: {reservation}");
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine($"\nError in reservation: {e.Message}");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"\nFormat error: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\nUnexpected error: {e.Message}");
             }
         }
     }
