@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using FixationExercise.Entities;
+using FixationExercise.Entities.Exceptions;
 
 namespace FixationExercise
 {
@@ -27,7 +30,44 @@ namespace FixationExercise
 
             */
 
+            try
+            {
+                Console.WriteLine("\nEnter account data:");
+                Console.WriteLine("-------------------");
 
+                Console.Write("Number: ");
+                int accountNumber = int.Parse(Console.ReadLine());
+
+                Console.Write("Holder: ");
+                string accountHolder = Console.ReadLine();
+
+                Console.Write("Initial balance: $ ");
+                double accountBalance = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                Console.Write("Withdraw limit: $ ");
+                double accountWithdrawLimit = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                Account account = new Account(accountNumber, accountHolder, accountBalance, accountWithdrawLimit);
+
+                Console.Write("\nEnter amount for withdraw: $ ");
+                double amountWithdraw = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                account.Withdraw(amountWithdraw);
+
+                Console.WriteLine($"\nNew balance: $ {account.Balance.ToString("F2", CultureInfo.InvariantCulture)}");
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine($"\nWithdraw error: {e.Message}");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"\nFormat error: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\nUnexpected error: {e.Message}");
+            }
         }
     }
 }
