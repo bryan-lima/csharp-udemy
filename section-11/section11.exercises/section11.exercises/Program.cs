@@ -58,19 +58,14 @@ namespace section11.exercises
                 Console.Write("Check-out date (dd/MM/yyyy): ");
                 checkOut = DateTime.Parse(Console.ReadLine());
 
-                DateTime now = DateTime.Now;
+                string error = reservation.UpdateDates(checkIn, checkOut);
 
-                if (checkIn < now || checkOut < now)
+                if (error != null)
                 {
-                    Console.WriteLine("\nError in reservation: Reservation dates for update must be future dates!");
-                }
-                else if (checkOut <= checkIn)
-                {
-                    Console.WriteLine("\nError in reservation: Check-out date must be after check-in date!");
+                    Console.WriteLine($"\nError in reservation: {error}");
                 }
                 else
                 {
-                    reservation.UpdateDates(checkIn, checkOut);
                     Console.WriteLine($"\nReservation: {reservation}");
                 }
             }
