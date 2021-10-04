@@ -17,7 +17,7 @@ namespace FixationExercise.Services
 
         public double Interest(double amount, int months)
         {
-            return amount * TAX_INTEREST;
+            return amount * TAX_INTEREST * months;
         }
     }
 }

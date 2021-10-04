@@ -36,10 +36,16 @@ namespace FixationExercise
             Console.Write("Enter number of installments: ");
             int numberInstallments = int.Parse(Console.ReadLine());
 
-            Contract contract = new Contract(contractNumber, contractDate, contractValue, numberInstallments, new PaypalService());
+            Contract contract = new Contract(contractNumber, contractDate, contractValue);
+
+            ContractService contractService = new ContractService(new PaypalService());
+            contractService.ProcessContract(contract, numberInstallments);
 
             Console.WriteLine("\nInstallments:");
-            contract.DisplayInstallments();
+            foreach (Installment installment in contract.Installments)
+            {
+                Console.WriteLine(installment);
+            }
         }
     }
 }

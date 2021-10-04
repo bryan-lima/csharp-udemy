@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 using FixationExercise.Entities;
+using FixationExercise.Interfaces;
 
 namespace FixationExercise.Services
 {
     public class ContractService
     {
+        private IOnlinePaymentService _onlinePaymentService;
+
+        public ContractService(IOnlinePaymentService onlinePaymentService)
+        {
+            _onlinePaymentService = onlinePaymentService;
+        }
+
         public void ProcessContract(Contract contract, int months)
         {
+            double basicInstallment = contract.TotalValue / months;
+
             for (int month = 1; month <= months; month++)
             {
-                double installmentValue = contract.TotalValue / months;
-
-                double interest = contract.OnlinePaymentService.Interest(installmentValue, month);
-                installmentValue += interest * month;
-
-                double paymentFee = contract.OnlinePaymentService.PaymentFee(installmentValue);
-                installmentValue += paymentFee;
-
                 DateTime installmentDate = contract.Date.AddMonths(month);
 
-                Installment installment = new Installment(installmentDate, installmentValue);
-                contract.Installments.Add(installment);
+                double updatedInstallment = basicInstallment + _onlinePaymentService.Interest(basicInstallment, month);
+                double finalValueInstallment = updatedInstallment + _onlinePaymentService.PaymentFee(updatedInstallment);
+
+                contract.AddInstallment(new Installment(installmentDate, finalValueInstallment));
             }
         }
     }

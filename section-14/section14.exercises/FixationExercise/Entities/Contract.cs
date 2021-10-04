@@ -15,31 +15,19 @@ namespace FixationExercise.Entities
 
         public double TotalValue { get; set; }
 
-        public List<Installment> Installments { get; set; } = new List<Installment>();
+        public List<Installment> Installments { get; set; }
 
-        public IOnlinePaymentService OnlinePaymentService;
-
-        private ContractService _contractService = new ContractService();
-
-        public Contract()
-        {
-        }
-
-        public Contract(int number, DateTime date, double totalValue, int installments, IOnlinePaymentService onlinePaymentService)
+        public Contract(int number, DateTime date, double totalValue)
         {
             Number = number;
             Date = date;
             TotalValue = totalValue;
-            OnlinePaymentService = onlinePaymentService;
-            _contractService.ProcessContract(this, installments);
+            Installments = new List<Installment>();
         }
 
-        public void DisplayInstallments()
+        public void AddInstallment(Installment installment)
         {
-            foreach (Installment installment in Installments)
-            {
-                Console.WriteLine($"{installment.DueDate.ToString("dd/MM/yyyy")} - $ {installment.Amount.ToString("F2", CultureInfo.InvariantCulture)}");
-            }
+            Installments.Add(installment);
         }
     }
 }
